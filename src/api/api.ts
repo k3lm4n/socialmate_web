@@ -1,6 +1,9 @@
 import axios from "axios";
+import * as dotenv from "dotenv";
 
-const url = "http://localhost:3000/api";
+dotenv.config();
+
+const url = process.env.URL_BASE || "http://localhost:3443/api";
 
 async function getUsers() {
   const response = await axios.get(url + "/user");
@@ -20,13 +23,17 @@ async function updateUser(id: string, data: {}) {
 async function deleteUser(id: string) {
   const response = await axios.delete(url + "/user/" + id);
   return response.data;
-} 
-
-async function authUser ({email, password}: {email: string, password: string}) {
-  const response = await axios.post(url + "/auth", {email, password});
-  return response.data;
 }
 
-
+async function authUser({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
+  const response = await axios.post(url + "/auth", { email, password });
+  return response.data;
+}
 
 export const api = { getUsers, createUser, updateUser, deleteUser, authUser };
