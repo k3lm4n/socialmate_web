@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config();
+
 const nextConfig = {
   reactStrictMode: true,
   experimental: { appDir: true },
@@ -17,6 +19,9 @@ const nextConfig = {
         hostname: "api.multiavatar.com",
       },
     ],
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
   },
   async redirects() {
     return [
