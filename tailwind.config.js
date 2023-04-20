@@ -104,7 +104,7 @@ module.exports = {
     colors: {
       white: "#fff",
       black: "#000",
-      secondary: "#ECF5FF",
+      secondary: "#60f9ff",
       accent: "#16C098",
       yellow: {
         50: "#fffaeb",
@@ -201,5 +201,6 @@ module.exports = {
         }),
       });
     }),
+    require("daisyui"),
   ],
 };

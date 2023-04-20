@@ -17,12 +17,12 @@ const Links = [
     id: 2,
   },
   {
-    name: "Contacto",
+    name: "Funcionalidades",
     path: "/contact",
     id: 3,
   },
   {
-    name: "Blog",
+    name: "Plataformas",
     path: "/blog",
     id: 4,
   },
@@ -35,7 +35,7 @@ const Homepage = () => {
   return (
     <div className="w-full h-full bg-blue-50/75 flex justify-center flex-col">
       <div className="w-full flex justify-center bg-white ">
-        <nav className="w-full h-16 flex fixed items-center justify-center bg-white shadow ">
+        <nav className="w-full h-16 flex fixed items-center justify-center content-center bg-white shadow ">
           <div className="w-[85%] flex items-center justify-center content-center ">
             <ul className="flex flex-col w-full content-center items-center justify-between sm:flex-row  ">
               <div className="flex">
@@ -107,10 +107,10 @@ const Homepage = () => {
         </nav>
       </div>
 
-      <div className="w-full h-screen bg-white flex justify-center items-center  shadow-xl">
-        <div className=" w-[calc(100vw-10%)] h-screen bg-white flex content-center justify-center">
+      <div className="w-full h-[calc(100vh-10%)] bg-white flex justify-center items-center shadow-xl mt-16">
+        <div className=" w-[calc(100vw-20%)] h-full bg-white flex content-center my-48 justify-center">
           <div className="flex w-full items-center ">
-            <div className="flex flex-col w-full mx-10 h-full justify-end mb-36 ">
+            <div className="flex flex-col w-full mx-10 h-full justify-center ">
               <h1 className="lg:text-6xl font-inter font-bold text-black  ">
                 Aprenda da melhor maneira
               </h1>
@@ -129,32 +129,173 @@ const Homepage = () => {
 
             <div className="w-full ">
               <Image
-                src="/homeBackground.svg"
-                width={557}
-                height={473}
+                src="/home.svg"
+                width={600}
+                height={500}
                 alt=""
-                className=" w-[557px] h-[473px]"
+                className=" w-[600px] h-[500px]"
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-screen h-screen bg-blue-50/30 flex flex-row items-center justify-center">
-
+      <div className="w-full bg-white flex flex-row items-center justify-center">
+        <div className=" w-[calc(100vw-20%)] bg-white flex flex-row justify-center gap-11">
           <Image
-            src="/homeBackground.svg"
+            src="/aboutus.svg"
             width={557}
             height={473}
             alt=""
             className=" w-[557px] h-[473px]"
           />
 
-        <div className="w-full flex ">
-          <h1>Sobre nós</h1>
+          <div className="w-full flex flex-col justify-center items-center bg-white rounded-xl ">
+            <h1 className="text-4xl w-full text-justify font-bold ">
+              Sobre nós
+            </h1>
+            <p className="text-2xl mt-6   pr-10 text-justify font-regular text-grey-700">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
+              vero commodi modi dicta, similique atque alias provident,
+              voluptate obcaecati sapiente aut ex! Nesciunt quisquam praesentium
+              odit, sapiente facere eveniet laborum...
+            </p>
+            <div className="w-full flex my-10">
+              <button className="bg-blue-600 text-white p-3 text-lg rounded-lg">
+                Ler Mais
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="w-screen h-screen bg-blue-50/30">
-        <div className=""></div>
+      <div className="w-screen h-screen bg-white flex justify-center items-center">
+        <div className="w-[calc(100vw-20%)] h-[490px] overflow-x-auto flex flex-row gap-10 ">
+          <div className=" w-80">
+            <div className="card w-80 h-[450px] glass ">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img1.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img2.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img3.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img4.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img2.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img2.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-80">
+            <div className="card w-80 h-[450px] glass">
+              <figure>
+                <Image
+                  alt="image 1"
+                  src={"/img2.jpg"}
+                  width={384}
+                  height={192}
+                  className="w-96 h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Life hack</h2>
+                <p>How to park your car at your garage?</p>
+                <div className="card-actions justify-end"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="w-full self-center drop-shadow-2xl">
         <Footer />
