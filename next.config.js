@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config();
 
 const nextConfig = {
   reactStrictMode: true,
@@ -20,7 +21,7 @@ const nextConfig = {
     ],
   },
   env: {
-    BASE_URL: 'http://localhost:3443/api',
+    BASE_URL: process.env.BASE_URL,
   },
   async redirects() {
     return [
