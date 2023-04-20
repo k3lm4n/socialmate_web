@@ -33,14 +33,26 @@ const Homepage = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full h-full bg-blue-50/75 flex justify-center flex-col">
-      <div className="w-full flex justify-center bg-white ">
-        <nav className="w-full h-16 flex fixed items-center justify-center content-center bg-white shadow ">
+    <div className=" bg-blue-50/75 flex justify-center flex-col">
+      <div className="flex justify-center bg-white ">
+        <nav
+          className={
+            !open
+              ? "w-full h-16 flex fixed items-center justify-center content-center bg-white shadow"
+              : "w-full h-screen flex fixed items-center justify-center content-center bg-white shadow"
+          }
+        >
           <div className="w-[85%] flex items-center justify-center content-center ">
-            <ul className="flex flex-col w-full content-center items-center justify-between sm:flex-row  ">
-              <div className="flex">
+            <ul
+              className={
+                !open
+                  ? "flex flex-row w-full content-center items-center justify-between "
+                  : "flex flex-col w-full content-center items-center "
+              }
+            >
+              <div className="flex flex-row items-center gap-10">
                 <button
-                  className="flex justify-center items-center w-14 h-14 focus:outline-none rounded lg:hidden "
+                  className="flex justify-center items-center w-14 h-14 focus:outline-none rounded  "
                   onClick={() => setOpen(!open)}
                 >
                   <div className=" flex flex-col w-full h-full justify-center items-center content-center">
@@ -82,25 +94,31 @@ const Homepage = () => {
                   </li>
                 </Link>
               </div>
-              <div className=" flex items-center ">
-                {Links.map((link) => (
-                  <Link href={link.path}>
-                    <li
-                      key={link.id}
-                      className="flex items-center justify-center mx-6 text-xl h-16 w-full font-inter  text-black hover:shadow-inner transition-all duration-300 "
+              <div className={!open ? "hidden lg:flex" : " flex"}>
+                <div
+                  className={
+                    !open ? "flex items-center" : " flex items-center flex-col"
+                  }
+                >
+                  {Links.map((link) => (
+                    <Link href={link.path}>
+                      <li
+                        key={link.id}
+                        className="flex items-center justify-center mx-6 text-xl h-16 w-full font-inter  text-black hover:shadow-inner transition-all duration-300 "
+                      >
+                        {link.name}
+                      </li>
+                    </Link>
+                  ))}
+                  <li className="">
+                    <Link
+                      href="auth/login"
+                      className="flex items-center justify-center mx-6 w-full h-12 text-xl text-white bg-blue-600 rounded-md font-inter hover:shadow-md transition-all duration-300 "
                     >
-                      {link.name}
-                    </li>
-                  </Link>
-                ))}
-                <li className="">
-                  <Link
-                    href="auth/login"
-                    className="flex items-center justify-center mx-6 w-full h-12 text-xl text-white bg-blue-600 rounded-md font-inter hover:shadow-md transition-all duration-300 "
-                  >
-                    Login
-                  </Link>
-                </li>
+                      Login
+                    </Link>
+                  </li>
+                </div>
               </div>
             </ul>
           </div>
