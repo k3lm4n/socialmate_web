@@ -33,16 +33,22 @@ const Homepage = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className=" bg-blue-50/75 flex justify-center flex-col">
+    <div className=" flex justify-center flex-col">
       <div className="flex justify-center bg-white ">
         <nav
           className={
             !open
-              ? "w-full h-16 flex fixed items-center justify-center content-center bg-white shadow"
-              : "w-full h-screen flex fixed items-center justify-center content-center bg-white shadow"
+              ? "w-full h-16 flex fixed items-center justify-center content-center bg-white shadow z-10"
+              : "w-full h-screen flex fixed justify-center content-center bg-white shadow z-10"
           }
         >
-          <div className="w-[85%] flex items-center justify-center content-center ">
+          <div
+            className={
+              !open
+                ? "w-[85%] flex items-center justify-center content-center "
+                : "w-full flex justify-center content-center "
+            }
+          >
             <ul
               className={
                 !open
@@ -52,7 +58,7 @@ const Homepage = () => {
             >
               <div className="flex flex-row items-center gap-10">
                 <button
-                  className="flex justify-center items-center w-14 h-14 focus:outline-none rounded  "
+                  className="flex justify-center items-center w-14 h-14 focus:outline-none rounded lg:hidden "
                   onClick={() => setOpen(!open)}
                 >
                   <div className=" flex flex-col w-full h-full justify-center items-center content-center">
@@ -125,21 +131,23 @@ const Homepage = () => {
         </nav>
       </div>
 
-      <div className="w-full h-[calc(100vh-10%)] bg-white flex justify-center items-center shadow-xl mt-16">
-        <div className=" w-[calc(100vw-20%)] h-full bg-white flex content-center my-48 justify-center">
-          <div className="flex w-full items-center ">
-            <div className="flex flex-col w-full mx-10 h-full justify-center ">
-              <h1 className="lg:text-6xl font-inter font-bold text-black  ">
-                Aprenda da melhor maneira
-              </h1>
-              <p className="text-2xl mt-6 font-productsans font-bold text-grey-900">
-                Com a melhor plataforma
-              </p>
-              <div className="flex flex-row gap-4 my-11 ">
+      <div className="w-full lg:h-[calc(100vh-10%)] bg-white flex justify-center items-center shadow-xl mt-16">
+        <div className=" w-[calc(100vw-20%)] lg:h-full bg-white flex content-center lg:my-48 justify-center">
+          <div className="flex w-full items-center lg:flex-row flex-col-reverse ">
+            <div className="flex lg:flex-col w-full mx-10 h-full justify-center lg:mt-4 flex-col-reverse ">
+              <div className="mt-4">
+                <h1 className="lg:text-6xl text-2xl  font-inter font-bold text-black text-end">
+                  Aprenda da melhor maneira
+                </h1>
+                <p className="lg:text-2xl text-base lg:mt-6 font-productsans font-bold text-grey-900 text-end">
+                  Com a melhor plataforma
+                </p>
+              </div>
+              <div className="flex lg:flex-row gap-4 lg:my-11 mt-4 flex-row-reverse ">
                 <button className=" lg:text-2xl text-white font-inter py-3 px-5 rounded-md bg-blue-600  hover:shadow-lg transition-all duration-500">
                   <Link href="auth/signup">Registre-se</Link>
                 </button>
-                <button className=" text-2xl text-black font-inter py-3 px-5 rounded-md border-2 border-blue-600 hover:shadow-lg transition-all duration-500">
+                <button className=" lg:text-2xl text-black font-inter lg:py-3 px-5 rounded-md border-2 border-blue-600 hover:shadow-lg transition-all duration-500">
                   <Link href="/Invite">Convide um amigo</Link>
                 </button>
               </div>
@@ -151,33 +159,33 @@ const Homepage = () => {
                 width={600}
                 height={500}
                 alt=""
-                className=" w-[600px] h-[500px]"
+                className=" lg:w-[600px] lg:h-[500px]"
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full bg-white flex flex-row items-center justify-center">
-        <div className=" w-[calc(100vw-20%)] bg-white flex flex-row justify-center gap-11">
+      <div className="w-full bg-white flex items-center justify-center ">
+        <div className=" w-[calc(100vw-20%)] bg-white flex lg:flex-row flex-col justify-center gap-11 mt-4">
           <Image
             src="/aboutus.svg"
             width={557}
             height={473}
             alt=""
-            className=" w-[557px] h-[473px]"
+            className=" lg:w-[557px] lg:h-[473px] "
           />
 
           <div className="w-full flex flex-col justify-center items-center bg-white rounded-xl ">
-            <h1 className="text-4xl w-full text-justify font-bold ">
+            <h1 className="lg:text-4xl text-2xl w-full text-justify font-bold ">
               Sobre nós
             </h1>
-            <p className="text-2xl mt-6   pr-10 text-justify font-regular text-grey-700">
+            <p className="lg:text-2xl mt-6   pr-10 text-justify font-regular text-grey-700">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
               vero commodi modi dicta, similique atque alias provident,
               voluptate obcaecati sapiente aut ex! Nesciunt quisquam praesentium
               odit, sapiente facere eveniet laborum...
             </p>
-            <div className="w-full flex my-10">
+            <div className="w-full flex my-10 justify-end lg:justify-start">
               <button className="bg-blue-600 text-white p-3 text-lg rounded-lg">
                 Ler Mais
               </button>
@@ -185,7 +193,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="w-screen h-screen bg-white flex justify-center items-center">
+      <div className="w-screen lg:h-screen bg-white flex justify-center items-center">
         <div className="w-[calc(100vw-20%)] h-[490px] overflow-x-auto flex flex-row gap-10 ">
           <div className=" w-80">
             <div className="card w-80 h-[450px] glass ">
