@@ -323,7 +323,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full self-center drop-shadow-2xl">
+      <div className="w-full bg-white ">
         <Footer />
       </div>
     </div>
