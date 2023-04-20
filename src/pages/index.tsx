@@ -33,7 +33,7 @@ const Homepage = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className=" flex justify-center flex-col">
+    <div className=" flex bg-white justify-center flex-col">
       <div className="flex justify-center bg-white ">
         <nav
           className={
