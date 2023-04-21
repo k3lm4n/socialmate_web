@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import Link from "next/link";
 import { AuthContext } from "../context/AuthContext";
 import Image from "next/image";
@@ -18,12 +18,12 @@ const Links = [
   },
   {
     name: "Funcionalidades",
-    path: "/contact",
+    path: "/features",
     id: 3,
   },
   {
     name: "Plataformas",
-    path: "/blog",
+    path: "/plataforms",
     id: 4,
   },
 ];
@@ -31,6 +31,13 @@ const Links = [
 const Homepage = () => {
   const context = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+
+  const scrollTo = (path: string) => {
+    const element = document.getElementById(path);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className=" flex bg-white justify-center flex-col text-black">
@@ -107,14 +114,17 @@ const Homepage = () => {
                   }
                 >
                   {Links.map((link) => (
-                    <Link href={link.path}>
-                      <li
-                        key={link.id}
-                        className="flex items-center justify-center mx-6 text-xl h-16 w-full font-inter  text-black hover:shadow-inner transition-all duration-300 "
+                    <li
+                      key={link.id}
+                      className="flex items-center justify-center mx-6 text-xl h-16 w-full font-inter  text-black hover:shadow-inner transition-all duration-300 "
+                    >
+                      <button
+                        onClick={() => scrollTo(link.path)}
+                        className="flex w-full items-center justify-center text-xl h-full font-inter  text-black hover:shadow-inner transition-all duration-300"
                       >
                         {link.name}
-                      </li>
-                    </Link>
+                      </button>
+                    </li>
                   ))}
                   <li className="">
                     <Link
@@ -165,7 +175,10 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-white flex items-center justify-center ">
+      <div
+        className="w-full bg-white flex items-center justify-center "
+        id="aboutus"
+      >
         <div className=" w-[calc(100vw-20%)] bg-white flex lg:flex-row flex-col justify-center gap-11 mt-4">
           <Image
             src="/aboutus.svg"
@@ -193,7 +206,10 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="w-screen lg:h-screen bg-white flex justify-center items-center">
+      <div
+        className="w-screen lg:h-screen bg-white flex justify-center items-center"
+        id="features"
+      >
         <div className="w-[calc(100vw-20%)] h-[490px] overflow-x-auto flex flex-row gap-10 ">
           <div className=" w-80">
             <div className="card w-80 h-[450px] glass ">
