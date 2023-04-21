@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 
 const url = process.env.URL_BASE || "http://api.oowl.tech/api";
