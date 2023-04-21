@@ -63,10 +63,17 @@ const AccordionContent = React.forwardRef(
 const InternalSideBar = () => {
   return (
     <div className="drawer drawer-mobile drawer-end absolute z-10 lg:z-0 lg:w-72 w-screen">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle bottom-0 absolute lg:hidden" />
-      <div className="drawer-content">
-        <label htmlFor="my-drawer" className="mb-10 ml-10 rounded-full bg-grey-900 p-3 text-white drawer-button bottom-0 absolute lg:hidden">
-    <ChatBubbleLeftRightIcon width={35} height={35} fill="000" />
+      <input
+        id="my-drawer"
+        type="checkbox"
+        className="drawer-toggle bottom-0 absolute lg:hidden"
+      />
+      <div className="drawer-content ml-20">
+        <label
+          htmlFor="my-drawer"
+          className="mb-10  rounded-full bg-grey-900 p-3 text-white drawer-button bottom-0 absolute lg:hidden"
+        >
+          <ChatBubbleLeftRightIcon width={35} height={35} fill="000" />
         </label>
       </div>
 
