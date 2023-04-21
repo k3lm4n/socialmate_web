@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 
-const url = process.env.URL_BASE || "http://api.oowl.tech/api";
+const url = process.env.URL_BASE || "https://api.oowl.tech/api";
 
 async function getUsers() {
   const response = await axios.get(url + "/user");
