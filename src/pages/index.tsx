@@ -8,22 +8,22 @@ import Footer from "@/components/Footer";
 const Links = [
   {
     name: "Home",
-    path: "/",
+    path: "#home",
     id: 1,
   },
   {
     name: "Sobre Nós",
-    path: "/about",
+    path: "#aboutus",
     id: 2,
   },
   {
     name: "Funcionalidades",
-    path: "/features",
+    path: "#features",
     id: 3,
   },
   {
     name: "Plataformas",
-    path: "/plataforms",
+    path: "#plataforms",
     id: 4,
   },
 ];
@@ -32,15 +32,23 @@ const Homepage = () => {
   const context = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
-  const scrollTo = (path: string) => {
-    const element = document.getElementById(path);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // first prevent the default behavior
+    e.preventDefault();
+    // get the href and remove everything before the hash (#)
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    // get the element by id and use scrollIntoView
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
-
   return (
-    <div className=" flex bg-white justify-center flex-col text-black">
+    <div
+      className=" flex bg-white justify-center flex-col text-black"
+      id="home"
+    >
       <div className="flex justify-center bg-white ">
         <nav
           className={
@@ -93,7 +101,8 @@ const Homepage = () => {
                   </div>
                 </button>
                 <Link
-                  href="/"
+                  href="#home"
+                  onClick={handleScroll}
                   className="hover:shadow-inner transition-all duration-300"
                 >
                   <li className="flex items-center justify-center h-16 ">
@@ -116,20 +125,29 @@ const Homepage = () => {
                   {Links.map((link) => (
                     <li
                       key={link.id}
-                      className="flex items-center justify-center mx-6 text-xl h-16 w-full font-inter  text-black hover:shadow-inner transition-all duration-300 "
+                      className={
+                        link.path !== "#aboutus"
+                          ? "h-16 w-full flex items-center justify-center mx-6 text-xl  font-inter hover-underline-animation text-black"
+                          : "h-16 w-24 flex items-center justify-center mx-6 text-xl  font-inter hover-underline-animation text-black"
+                      }
                     >
-                      <button
-                        onClick={() => scrollTo(link.path)}
-                        className="flex w-full items-center justify-center text-xl h-full font-inter  text-black hover:shadow-inner transition-all duration-300"
+                      <Link
+                        href={link.path}
+                        onClick={handleScroll}
+                        className={
+                          link.path !== "#aboutus"
+                            ? "w-full h-16 flex items-center justify-center font-inter text-black "
+                            : "w-24 h-16 flex items-center justify-center font-inter text-black "
+                        }
                       >
-                        {link.name}
-                      </button>
+                        <div className="w-full flex justify-center items-center">{link.name}</div>
+                      </Link>
                     </li>
                   ))}
-                  <li className="">
+                  <li className="flex items-center justify-center w-full mx-6">
                     <Link
                       href="auth/login"
-                      className="flex items-center justify-center mx-6 w-full h-12 text-xl text-white bg-blue-600 rounded-md font-inter hover:shadow-md transition-all duration-300 "
+                      className="flex items-center justify-center px-6 w-full h-12 text-xl text-white bg-blue-600 rounded-md font-inter hover:shadow-md transition-all duration-300 "
                     >
                       Login
                     </Link>
@@ -141,7 +159,7 @@ const Homepage = () => {
         </nav>
       </div>
 
-      <div className="w-full lg:h-[calc(100vh-10%)] bg-white flex justify-center items-center shadow-xl mt-16">
+      <div className="w-full lg:h-[calc(100vh-10%)] bg-white flex justify-center items-center mt-16 lg:mb-0 mb-10">
         <div className=" w-[calc(100vw-20%)] lg:h-full bg-white flex content-center lg:my-48 justify-center">
           <div className="flex w-full items-center lg:flex-row flex-col-reverse ">
             <div className="flex lg:flex-col w-full mx-10 h-full justify-center lg:mt-4 flex-col-reverse ">
@@ -154,10 +172,10 @@ const Homepage = () => {
                 </p>
               </div>
               <div className="flex lg:flex-row gap-4 lg:my-11 mt-4 flex-row-reverse ">
-                <button className=" lg:text-2xl text-white font-inter py-3 px-5 rounded-md bg-blue-600  hover:shadow-lg transition-all duration-500">
+                <button className=" lg:text-2xl text-white font-inter lg:py-3 py-2 px-3 lg:px-5 rounded-md bg-blue-600  hover:shadow-lg transition-all duration-500">
                   <Link href="auth/signup">Registre-se</Link>
                 </button>
-                <button className=" lg:text-2xl text-black font-inter lg:py-3 px-5 rounded-md border-2 border-blue-600 hover:shadow-lg transition-all duration-500">
+                <button className=" lg:text-2xl text-black font-inter lg:py-3 py-2 px-3 lg:px-5 rounded-md border-2 border-blue-600 hover:shadow-lg transition-all duration-500">
                   <Link href="/Invite">Convide um amigo</Link>
                 </button>
               </div>
@@ -176,10 +194,10 @@ const Homepage = () => {
         </div>
       </div>
       <div
-        className="w-full bg-white flex items-center justify-center "
+        className="bg-section-1 w-full lg:h-screen bg-white flex items-center justify-center "
         id="aboutus"
       >
-        <div className=" w-[calc(100vw-20%)] bg-white flex lg:flex-row flex-col justify-center gap-11 mt-4">
+        <div className=" w-[calc(100vw-20%)] bg-white flex lg:flex-row flex-col justify-center gap-11 mt-4 rounded-2xl">
           <Image
             src="/aboutus.svg"
             width={557}
@@ -198,7 +216,7 @@ const Homepage = () => {
               voluptate obcaecati sapiente aut ex! Nesciunt quisquam praesentium
               odit, sapiente facere eveniet laborum...
             </p>
-            <div className="w-full flex my-10 justify-end lg:justify-start">
+            <div className="w-full flex my-10 justify-end lg:justify-start mr-10">
               <button className="bg-blue-600 text-white p-3 text-lg rounded-lg">
                 Ler Mais
               </button>
@@ -207,12 +225,12 @@ const Homepage = () => {
         </div>
       </div>
       <div
-        className="w-screen lg:h-screen bg-white flex justify-center items-center"
+        className=" bg-section-2 w-screen lg:h-screen bg-white flex justify-center items-center"
         id="features"
       >
-        <div className="w-[calc(100vw-20%)] h-[490px] overflow-x-auto flex flex-row gap-10 ">
-          <div className=" w-80">
-            <div className="card w-80 h-[450px] glass ">
+        <div className="w-[calc(100vw-20%)] lg:h-[490px] h-[400px] overflow-x-auto flex flex-row gap-10 ">
+          <div className=" w-64">
+            <div className="card w-64 lg:h-[450px] glass ">
               <figure>
                 <Image
                   alt="image 1"
@@ -229,8 +247,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -247,8 +265,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -265,8 +283,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -283,8 +301,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -301,8 +319,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -319,8 +337,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="w-80">
-            <div className="card w-80 h-[450px] glass">
+          <div className="w-64">
+            <div className="card w-64 lg:h-[450px] glass">
               <figure>
                 <Image
                   alt="image 1"
@@ -338,6 +356,8 @@ const Homepage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="bg-section-3 w-full h-screen bg-white" id="plataforms">
       </div>
       <div className="w-full bg-white ">
         <Footer />

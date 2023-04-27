@@ -12,17 +12,17 @@ const groups = [
   {
     name: "Project 2",
     id: "2",
-    photo: "https://picsum.photos/200",
+    photo: "https://picsum.photos/300",
   },
   {
     name: "Project 3",
     id: "3",
-    photo: "https://picsum.photos/200",
+    photo: "https://picsum.photos/400",
   },
   {
     name: "Project 4",
     id: "4",
-    photo: "https://picsum.photos/200",
+    photo: "https://picsum.photos/500",
   },
 ];
 

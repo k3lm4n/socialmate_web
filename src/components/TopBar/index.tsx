@@ -4,7 +4,7 @@ import { UsersIcon } from "@heroicons/react/24/outline";
 
 const TopBar = () => {
   return (
-    <nav className="top-bar right-0 h-14  flex items-center mt-4 fixed rounded-tl-lg bg-white">
+    <nav className="top-bar right-0 h-14  flex items-center mt-4 fixed rounded-tl-lg bg-white z-10">
       <ul className="flex flex-row items-center content-center align-middle">
         <li className=" flex justify-center content-center items-center">
           <input
