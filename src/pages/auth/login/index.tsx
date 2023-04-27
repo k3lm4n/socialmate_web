@@ -50,18 +50,18 @@ const Login = () => {
       />
       <div className="w-full h-screen bg-grey-300">
         <div className="w-full h-screen  flex content-center  justify-center items-center">
-          <div className="flex items-center justify-center w-[460px] h-[650px]  backdrop-blur-lg rounded-xl bg-white/30">
-            <div className="w-[380px] h-[550px] px-16 flex items-center flex-col bg-white rounded-xl shadow-2xl z-30 backdrop-blur-lg">
+          <div className="flex items-center justify-center lg:w-[460px]  lg:h-[650px]  backdrop-blur-lg rounded-xl bg-white/30">
+            <div className="lg:w-[380px] lg:h-[550px] px-16 lg:pb-0 pb-10 flex items-center flex-col bg-white rounded-xl shadow-2xl z-30 backdrop-blur-lg">
               <h3 className="text-3xl font-bold text-grey-900 m-3 mt-10 ">
                 Iniciar a sessão
               </h3>
-              <button className="border-[0.7px] w-full py-2 rounded-md my-3 border-[#d2d2d2] hover:bg-[#EA4335] hover:text-white hover:transition-all duration-300 ease-in-out">
+              <button className="border-[0.7px] w-full py-2 rounded-md my-3 border-grey-200 hover:bg-[#EA4335] hover:text-white hover:transition-all duration-300 ease-in-out">
                 Continuar com o Google
               </button>
               <div className="w-full flex flex-row my-4 ">
-                <div className="flex w-full h-[1px] bg-[#d2d2d2] my-4 " />
+                <div className="flex w-full h-[1px] bg-greyborder-grey-200 my-4 " />
                 <p className="px-2">Ou</p>
-                <div className="flex w-full h-[1px] bg-[#d2d2d2] my-4 " />
+                <div className="flex w-full h-[1px] bg-greyborder-grey-200 my-4 " />
               </div>
 
               <form
@@ -74,7 +74,7 @@ const Login = () => {
                       Email
                     </label>
                     <input
-                      className="border-[0.7px] border-[#d2d2d2] p-1 rounded-md"
+                      className="border-[0.7px] border-grey-200 p-1 rounded-md bg-white"
                       type="email"
                       {...register("email")}
                     />
@@ -86,7 +86,7 @@ const Login = () => {
                       Password
                     </label>
                     <input
-                      className="border-[0.7px] border-[#d2d2d2] p-1 rounded-md"
+                      className="border-[0.7px] border-grey-200 p-1 rounded-md bg-white"
                       type="password"
                       {...register("password")}
                     />
@@ -95,7 +95,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="w-full text-center py-2 my-3  rounded-md  bg-grey-500 text-sm font-regular hover:bg-grey-600 hover:text-white hover:transition-all duration-300 ease-in-out"
+                  className="w-full text-center py-2 my-3  rounded-md text-white bg-grey-500 text-sm font-regular hover:bg-grey-600  hover:transition-all duration-300 ease-in-out"
                 >
                   <Link href={"/auth/login"}>Iniciar Sessão</Link>
                 </button>

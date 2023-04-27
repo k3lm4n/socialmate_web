@@ -35,13 +35,13 @@ const ListGroup = () => {
           key={group.id}
           className="flex items-center my-2"
         >
-          <li className=" w-11 h-11 rounded-xl bg-white">
+          <li className=" lg:w-11 w-8 lg:h-11 h-8 rounded-xl bg-white">
             <Image
               src={group.photo}
               width={44}
               height={44}
               alt="Icon Group"
-              className="top-0 w-11 h-11  rounded-xl "
+              className="top-0 lg:w-11 w-8 lg:h-11 h-8  rounded-xl "
             />
           </li>
         </Link>
