@@ -75,11 +75,17 @@ const groups = [
     id: "12",
     photo: "https://api.multiavatar.com/zoe.svg",
   },
+  {
+    name: "Subject 13",
+    username: "#UserK3lm4n",
+    id: "13",
+    photo: "https://api.multiavatar.com/jay.svg",
+  },
 ];
 
 const ChatCommunity = () => {
   return (
-    <div className=" h-full overflow-auto">
+    <div className="h-full overflow-y-auto ">
       {groups.map((group) => (
         <Link
           href={"/dashboard/communities"}

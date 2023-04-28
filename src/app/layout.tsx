@@ -18,7 +18,7 @@ export default function RootLayout({
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href="/unionLogo.svg" />
         </head>
-        <body className="w-full h-screen flex flex-row  bg-grey-200">
+        <body className=" bg-grey-200">
           {children}
         </body>
       </html>

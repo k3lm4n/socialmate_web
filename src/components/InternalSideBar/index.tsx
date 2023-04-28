@@ -63,21 +63,26 @@ const AccordionContent = React.forwardRef(
 const InternalSideBar = () => {
   return (
     <>
-      <button
-        className="fixed bottom-0 w-14 h-14 ml-5 mb-6 peer text-4xl bg-blue-300 rounded-full z-10 lg:hidden"
-        id="button_aside"
-      >
-        <div className="flex justify-center items-center w-full h-full">
+      <input
+        className="peer hidden"
+        type="checkbox"
+        id="sidebar-toggle"
+      ></input>
+      <div className="fixed bottom-0 w-14 h-14 ml-5 mb-6 text-4xl bg-blue-300 rounded-full z-30 lg:hidden">
+        <label
+          htmlFor="sidebar-toggle"
+          className="flex justify-center items-center w-full h-full "
+        >
           <ChatBubbleLeftRightIcon
             width={36}
             height={36}
             className="text-black"
           />
-        </div>
-      </button>
-      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[calc(100vh-3.8rem)] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] peer-focus:max-lg:left-0 ease-out delay-150 duration-300 peer-focus:max-lg:z-20">
+        </label>
+      </div>
+      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[91%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] peer-checked:max-lg:left-0 ease-in delay-150 duration-300 peer-checked:max-lg:z-20">
         <Accordion.Root
-          className="lg:w-72 w-[calc(100vw-4rem)] h-[calc(100vh-3.7rem)] shadow-[0_2px_10px] shadow-black/5 "
+          className="lg:w-72 w-[calc(100vw-4rem)] lg:h-[calc(100vh-3.7rem)] h-[91%] shadow-[0_2px_10px] shadow-black/5 "
           type="single"
           defaultValue="item-1"
           collapsible
@@ -100,7 +105,7 @@ const InternalSideBar = () => {
           <AccordionItem value="item-2">
             <AccordionTrigger>Conversas</AccordionTrigger>
             <AccordionContent>
-              <ul className="flex flex-col ">
+              <ul className="flex flex-col  ">
                 <ChatCommunity />
               </ul>
             </AccordionContent>

@@ -5,11 +5,11 @@ import TopBar from "@/components/TopBar";
 
 export default function Page() {
   return (
-    <div className="">
+    <>
       <TopBar />
       <InternalSideBar />
       <CommunitySpace />
       {/* <ActiveList /> */}
-    </div>
+    </>
   );
 }
