@@ -6,7 +6,7 @@ import { MicrophoneIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 
 const StatusBar = () => {
   return (
-    <div className="bottom-0 py-2 fixed flex flex-row lg:w-72 w-[calc(100vw-4rem)] h-14 items-center bg-grey-200">
+    <div className="bottom-0 py-2 fixed flex flex-row lg:w-72 w-[calc(100vw-4rem)] h-14 items-center bg-grey-200 z-20">
       <Link href={"/dashboard/feed"} className="flex flex-row ">
         <div className="flex items-center w-8 h-8 mt-1 ml-3 rounded-xl ">
           <Image

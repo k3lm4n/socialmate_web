@@ -1,11 +1,12 @@
 import DiscoveryBar from "@/components/DiscoveryBar";
 import DiscoverySpace from "@/components/DiscoverySpace";
+import DashboardLayout from "../../../components/Layouts/DashboardLayout";
 
 export default function Page() {
   return (
-    <div className="">
+    <DashboardLayout>
       <DiscoveryBar />
-      <DiscoverySpace/>
-    </div>
+      <DiscoverySpace />
+    </DashboardLayout>
   );
 }

@@ -30,21 +30,20 @@ const ListGroup = () => {
   return (
     <>
       {groups.map((group) => (
-        <Link
-          href={"/dashboard/communities"}
-          key={group.id}
-          className="flex items-center my-2"
-        >
-          <li className=" lg:w-11 w-8 lg:h-11 h-8 rounded-xl bg-white">
+        <li className="flex items-center my-2  " key={group.id}>
+          <Link
+            href={"/dashboard/communities"}
+            className="lg:w-11 w-8 lg:h-11 h-8"
+          >
             <Image
               src={group.photo}
               width={44}
               height={44}
               alt="Icon Group"
-              className="top-0 lg:w-11 w-8 lg:h-11 h-8  rounded-xl "
+              className="top-0 lg:w-11 w-8 lg:h-11 h-8 animate-scaleOut hover:animate-scaleIn  hover:rounded-xl rounded-full "
             />
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </>
   );

@@ -9,30 +9,37 @@ import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Login } from "@/utils/types/types";
 import Loading from "@/components/Loading";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () =>
+  toast("Boa! Você está logado!", {
+    icon: "👏",
+    duration: 3000,
+  });
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const {isLoading,data,error} = useQuery('getUser',api.getUsers)
-
-  //     console.log(isLoading,data,error)
-
-  const { mutateAsync, mutate, isLoading, isError, status } = useMutation(
+  const { mutateAsync, isLoading, isError } = useMutation(
     ({ email, password }: { email: string; password: string }) =>
       api.authUser({ email, password }),
     {
       onSuccess: () => {
         context.setAuth(true);
-        router.push("/dashboard");
+        notify();
+        setTimeout(() => {
+          router.push("/dashboard/discovery");
+        }, 3000);
       },
     }
   );
 
-  const { register, handleSubmit } = useForm<Login>({});
-
   const router = useRouter();
   const context = useContext(AuthContext);
+
+  console.log("====================================");
+  console.log(context);
+  console.log("====================================");
+
+  const { register, handleSubmit } = useForm<Login>({});
 
   const onSubmit: SubmitHandler<Login> = async (data) => {
     console.log(data);
@@ -111,6 +118,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </>
   );
 };

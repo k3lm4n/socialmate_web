@@ -80,38 +80,40 @@ const InternalSideBar = () => {
           />
         </label>
       </div>
-      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[91%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] peer-checked:max-lg:left-0 ease-in delay-150 duration-300 peer-checked:max-lg:z-20">
-        <Accordion.Root
-          className="lg:w-72 w-[calc(100vw-4rem)] lg:h-[calc(100vh-3.7rem)] h-[91%] shadow-[0_2px_10px] shadow-black/5 "
-          type="single"
-          defaultValue="item-1"
-          collapsible
-        >
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Membros</AccordionTrigger>
-            <AccordionContent>
-              <ul className="flex flex-col h-full ">
-                <li className="flex items-center w-full h-full rounded-md bg hover:shadow-inner transition-all duration-300">
-                  <p className="text-sm font-medium text-grey-600 mx-2">
-                    DIRECT MESSAGES
-                  </p>
-                </li>
-                <ul className="flex justify-center self-center w-[95%] my-2 h-[1.5px] bg-grey-200 " />
-                <MemberCommunity />
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
+      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[91.5%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] animate-enterFromLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-20">
+        <nav className="h-full">
+          <Accordion.Root
+            className="lg:w-72 w-[calc(100vw-4rem)] lg:h-[calc(100vh-3.7rem)] h-[91%] shadow-[0_2px_10px] shadow-black/5 "
+            type="single"
+            defaultValue="item-1"
+            collapsible
+          >
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Membros</AccordionTrigger>
+              <AccordionContent>
+                <ul className="flex flex-col h-full ">
+                  <li className="flex items-center w-full h-full rounded-md bg hover:shadow-inner transition-all duration-300">
+                    <p className="text-sm font-medium text-grey-600 mx-2">
+                      DIRECT MESSAGES
+                    </p>
+                  </li>
+                  <ul className="flex justify-center self-center w-[95%] my-2 h-[1.5px] bg-grey-200 " />
+                  <MemberCommunity />
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
 
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Conversas</AccordionTrigger>
-            <AccordionContent>
-              <ul className="flex flex-col  ">
-                <ChatCommunity />
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion.Root>
-        <StatusBar />
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Conversas</AccordionTrigger>
+              <AccordionContent>
+                <ul className="flex flex-col  ">
+                  <ChatCommunity />
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion.Root>
+          <StatusBar />
+        </nav>
       </aside>
     </>
   );

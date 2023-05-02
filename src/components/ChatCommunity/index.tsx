@@ -87,12 +87,14 @@ const ChatCommunity = () => {
   return (
     <div className="h-full overflow-y-auto ">
       {groups.map((group) => (
-        <Link
-          href={"/dashboard/communities"}
+        <li
+          className=" flex  items-center content-center justify-center w-full h-12"
           key={group.id}
-          className="flex  items-center content-center justify-center w-full h-12"
         >
-          <li className="flex w-[98%]  flex-row h-11 rounded-xs justify-center items-center  ">
+          <Link
+            href={"/dashboard/communities"}
+            className="flex w-[98%]  flex-row h-11 rounded-xs justify-center items-center  "
+          >
             <div className="w-full rounded-md h-11 hover:bg-grey-200 hover:transition-all duration-400 ">
               <p className="text-base pl-2 font-regular text-grey-800">
                 {group.name}
@@ -101,8 +103,8 @@ const ChatCommunity = () => {
                 {group.username}
               </p>
             </div>
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </div>
   );

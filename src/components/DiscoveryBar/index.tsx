@@ -36,26 +36,23 @@ const DiscoveryBar = () => {
         type="checkbox"
         id="sidebar-toggle"
       ></input>
-      <div className="fixed bottom-0 w-14 h-14 ml-5 mb-6 text-4xl bg-blue-300 rounded-full z-30 lg:hidden">
+      <div className="animate-bounce fixed bottom-0 w-14 h-14 ml-5 mb-6 text-4xl bg-blue-900 rounded-full z-30 lg:hidden">
         <label
           htmlFor="sidebar-toggle"
           className="flex justify-center items-center w-full h-full"
         >
-          <UserGroupIcon width={36} height={36} className="text-black" />
+          <UserGroupIcon width={36} height={36} className="text-white" />
         </label>
       </div>
-      <aside className="ml-16 lg:ml-20 mt-4 h-[calc(100vh-1rem)] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] peer-checked:max-lg:left-0 ease-out delay-150 duration-300 peer-checked:max-lg:z-20">
-        <nav>
+      <aside className="ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-1rem)] h-[99.5%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] animate-enterToLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-20">
+        <nav className="h-full">
           <h1 className="mt-2 ml-6 mb-6 font-bold text-4xl">Discovery</h1>
           <ul className="flex flex-col">
             {LikedContent.map((item) => (
-              <Link
-                href={"/dashboard/feed"}
-                className="flex flex-row items-center"
-              >
-                <li
-                  key={item.id}
-                  className="flex items-center justify-center w-12 h-11 mt-1 ml-6 rounded-xl "
+              <li key={item.id} className="flex flex-row ">
+                <Link
+                  href={"/dashboard/feed"}
+                  className="flex items-center  w-full h-11 mt-1 rounded-md hover:bg-blue-50/25 transition-all duration-300"
                 >
                   <Image
                     src={item.photo}
@@ -64,9 +61,9 @@ const DiscoveryBar = () => {
                     height={46}
                     className="h-12 w-12"
                   />
-                </li>
-                <p className="text-sm font-regular">{item.name}</p>
-              </Link>
+                  <p className="text-sm font-regular">{item.name}</p>
+                </Link>
+              </li>
             ))}
           </ul>
           <StatusBar />

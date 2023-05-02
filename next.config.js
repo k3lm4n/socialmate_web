@@ -3,7 +3,6 @@ require("dotenv").config();
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { appDir: true },
   images: {
     remotePatterns: [
       {

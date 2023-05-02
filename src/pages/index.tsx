@@ -53,8 +53,8 @@ const Homepage = () => {
         <nav
           className={
             !open
-              ? "w-full h-16 flex fixed items-center justify-center content-center bg-white shadow z-10"
-              : "w-full h-screen flex fixed justify-center content-center bg-white shadow z-10"
+              ? "w-full h-16 flex fixed items-center justify-center content-center bg-white shadow z-10 animate-scaleOut"
+              : "w-full h-screen flex fixed justify-center content-center bg-white shadow z-10 animate-scaleIn"
           }
         >
           <div
@@ -140,16 +140,18 @@ const Homepage = () => {
                             : "w-24 h-16 flex items-center justify-center font-inter text-black "
                         }
                       >
-                        <div className="w-full flex justify-center items-center">{link.name}</div>
+                        <div className="w-full flex justify-center items-center">
+                          {link.name}
+                        </div>
                       </Link>
                     </li>
                   ))}
-                  <li className="flex items-center justify-center w-full mx-6">
+                  <li className="h-16 w-full flex items-center justify-center mx-6 text-xl  font-inter  text-black">
                     <Link
                       href="auth/login"
-                      className="flex items-center justify-center px-6 w-full h-12 text-xl text-white bg-blue-600 rounded-md font-inter hover:shadow-md transition-all duration-300 "
+                      className="w-full h-16 lg:h-12 flex items-center justify-center font-inter text-black lg:text-white lg:bg-blue-500 lg:rounded-md px-6 "
                     >
-                      Login
+                      Entrar
                     </Link>
                   </li>
                 </div>
@@ -357,8 +359,10 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-section-3 w-full h-screen bg-white" id="plataforms">
-      </div>
+      <div
+        className="bg-section-3 w-full h-screen bg-white"
+        id="plataforms"
+      ></div>
       <div className="w-full bg-white ">
         <Footer />
       </div>
