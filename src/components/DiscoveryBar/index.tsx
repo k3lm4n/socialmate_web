@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, UserGroupIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import StatusBar from "../StatusBar";
+import ExternalSideBar from "../ExternalSideBar";
 
 const LikedContent = [
   {
@@ -31,22 +32,25 @@ const LikedContent = [
 const DiscoveryBar = () => {
   return (
     <>
-      <input
-        className="peer hidden"
-        type="checkbox"
-        id="sidebar-toggle"
-      ></input>
-      <div className="animate-bounce fixed bottom-0 w-14 h-14 ml-5 mb-6 text-4xl bg-blue-900 rounded-full z-30 lg:hidden">
+      <input className="peer hidden" type="checkbox" id="sidebar-toggle" />
+      <div className="animate-bounce fixed bottom-0 w-9 h-9 ml-5 mb-6 text-4xl bg-blue-900 rounded-full z-40 lg:hidden">
         <label
           htmlFor="sidebar-toggle"
           className="flex justify-center items-center w-full h-full"
         >
-          <UserGroupIcon width={36} height={36} className="text-white" />
+          <Bars3Icon width={24} height={24} className="text-white" />
         </label>
       </div>
-      <aside className="ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-1rem)] h-[99.5%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] animate-enterToLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-20">
+      {/* <div className="h-screen w-screen opacity-0 backdrop-blur-sm animate-fadeOut peer-checked:animate-fadeIn peer-checked:z-10 "></div> */}
+      <div className="animate-exitToLeft fixed peer-checked:max-lg:animate-fadeIn peer-checked:z-20 peer-checked:max-sm:left-0 w-16 max-sm:-left-[calc(100vw+5rem)] lg-20 ">
+        <ExternalSideBar />
+      </div>
+     
+      <aside className="ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-1rem)] h-[99.5%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] animate-enterToLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-30 ">
         <nav className="h-full">
-          <h1 className="mt-2 ml-6 mb-6 font-bold text-4xl">Discovery</h1>
+          <h1 className="mt-2 ml-6 mb-6 font-bold lg:text-4xl text-2xl">
+            Discovery
+          </h1>
           <ul className="flex flex-col">
             {LikedContent.map((item) => (
               <li key={item.id} className="flex flex-row ">
@@ -66,7 +70,9 @@ const DiscoveryBar = () => {
               </li>
             ))}
           </ul>
-          <StatusBar />
+          <div className="max-sm:hidden">
+            <StatusBar />
+          </div>
         </nav>
       </aside>
     </>

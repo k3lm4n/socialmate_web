@@ -5,43 +5,36 @@ import {
   ChatBubbleLeftIcon,
   ArrowPathRoundedSquareIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const PostView = () => {
   return (
-    <div className="bg-white w-full h-96 rounded-md">
-      <div className="m-4">
-        <div className="grid grid-rows-6 w-full h-[23rem]">
-          <div className="w-full h-full row-span-5">
-            <div className="grid grid-rows-6  ">
-              <div className="flex justify-between">
-                <h1 className="text-xl">Tittle of content</h1>
-                <BookmarkIcon height={24} width={24} />
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center items-center self-center h-full ">
-            <div className="flex justify-evenly items-center w-3/4 h-full border-t-[0.7px] border-grey-200 rounded-sm">
-              <HandThumbUpIcon
-                height={24}
-                width={24}
-                className="hover:animate-bounce " 
-              />
-
-              <ChatBubbleLeftIcon
-                height={24}
-                width={24}
-                className="hover:animate-bounce "
-              />
-              <ArrowPathRoundedSquareIcon
-                height={24}
-                width={24}
-                className="hover:animate-bounce"
-              />
-            </div>
-          </div>
-        </div>
+    <article className="flex-col flex gap-5 bg-white rounded-md py-4">
+      <div className="flex justify-between px-4">
+        <h2 className="text-lg">Title of content</h2>
+        <button>
+          <BookmarkIcon className="text-black w-6 h-6" />
+        </button>
       </div>
-    </div>
+      <Image
+        className="flex-1 self-center aspect-[16/9] object-cover object-center"
+        src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+        alt="lorem"
+        width={600}
+        height={400}
+      />
+      <div className="flex px-4 justify-center gap-8">
+        <button className="hover:animate-bounce">
+          <HandThumbUpIcon className="text-black w-6 h-6" />
+        </button>
+        <button className="hover:animate-bounce">
+          <ChatBubbleLeftIcon className="text-black w-6 h-6" />
+        </button>
+        <button className="hover:animate-bounce">
+          <ArrowPathRoundedSquareIcon className="text-black w-6 h-6" />
+        </button>
+      </div>
+    </article>
   );
 };
 

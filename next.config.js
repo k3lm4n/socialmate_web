@@ -17,6 +17,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "api.multiavatar.com",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   env: {
