@@ -18,13 +18,13 @@ const ExternalSideBar = () => {
   console.log(context);
   console.log("====================================");
   return (
-    <aside className="h-screen lg:w-20 w-16  fixed ">
-      <nav>
-        <ul className="flex flex-col items-center">
-          <li className=" lg:w-11 lg:h-11 mt-5 mb-2 rounded-full bg-blue-50 hover:shadow-inner transition-all  duration-500">
+    <aside className="h-screen lg:w-20 md:w-16 w-[calc(100vw-4%)]  fixed left-0 right-0 top-0 max-sm:mx-4 ">
+      <nav className="h-full w-full">
+        <ul className="w-full flex md:flex-col flex-row max-sm:gap-4 items-center overflow-scroll">
+          <li className=" lg:w-11 lg:h-11 md:mt-5 md:mb-2 rounded-full bg-blue-50 hover:shadow-inner transition-all  duration-500">
             <Link
               href={"/dashboard/discovery"}
-              className=" flex items-center justify-center lg:w-11 w-8 lg:h-11 h-8"
+              className=" flex items-center justify-center lg:w-11 w-9 lg:h-11 h-9"
             >
               <Image
                 src={"/unionLogo.svg"}
@@ -35,7 +35,7 @@ const ExternalSideBar = () => {
               />
             </Link>
           </li>
-          <ul className="flex w-10 h-[2px] bg-black/30 " />
+          <span className="flex w-[2px] h-5 md:w-10 md:h-[2px] bg-black/30 " />
 
           <ListGroup />
           <li className="flex items-center justify-center lg:w-12 w-8 lg:h-12 h-8 my-2 rounded-full bg-white hover:shadow-inner transition-all duration-300">
