@@ -4,6 +4,10 @@ const plugin = require("tailwindcss/plugin");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  daisyui: {
+    themes: false,
+    base: false,
+  },
   theme: {
     extend: {
       borderRadius: {
@@ -212,5 +216,6 @@ module.exports = {
         }),
       });
     }),
+    require("daisyui"),
   ],
 };

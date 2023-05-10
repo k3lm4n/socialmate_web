@@ -77,10 +77,10 @@ const InternalSideBar = () => {
           <Bars3Icon width={24} height={24} className="text-white" />
         </label>
       </div>
-      <div className="animate-exitToLeft fixed peer-checked:max-lg:animate-fadeIn peer-checked:z-20 peer-checked:max-sm:left-0 w-16 max-sm:-left-[calc(100vw+5rem)] lg-20 ">
+      <div className="animate-exitToLeft fixed peer-checked:max-lg:animate-fadeIn max-sm:hidden peer-checked:block peer-checked:z-20 peer-checked:max-sm:left-0 w-16 max-sm:-left-[calc(100vw+5rem)] lg-20 ">
         <ExternalSideBar />
       </div>
-      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[calc(100vh-1rem)] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] max-sm:rounded-tl-md animate-enterFromLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-20">
+      <aside className=" ml-16 lg:ml-20 mt-4 lg:h-[calc(100vh-4.7rem)] h-[97%] rounded-tl-lg lg:w-72 w-[calc(100vw-4rem)] fixed bottom-0 bg-grey-100 lg:left-0  lg:shadow-2xl -left-[calc(100vw+5rem)] max-sm:rounded-tl-md animate-enterFromLeft peer-checked:max-lg:left-0 peer-checked:max-lg:animate-enterFromRight peer-checked:max-lg:z-20">
         <nav className="h-full">
           <Accordion.Root
             className="lg:w-72 w-[calc(100vw-4rem)] lg:h-[calc(100vh-3.7rem)] h-[91%] shadow-[0_2px_10px] shadow-black/5 "

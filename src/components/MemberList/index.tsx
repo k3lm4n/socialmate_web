@@ -59,8 +59,8 @@ const MemberCommunity = () => {
   return (
     <>
       {groups.map((group) => (
-        <HoverCard.Root>
-          <HoverCard.Trigger asChild key={group.id}>
+        <HoverCard.Root key={group.id}>
+          <HoverCard.Trigger asChild >
             <li className="flex  items-center content-center justify-center my-1 w-full h-11">
               <Link
                 href={"/dashboard/communities"}

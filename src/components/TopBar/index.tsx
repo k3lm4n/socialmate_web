@@ -4,16 +4,16 @@ import { UsersIcon } from "@heroicons/react/24/outline";
 
 const TopBar = () => {
   return (
-    <nav className="lg:w-[calc(100vw-5rem)]   right-0 lg:h-14 h-10  flex items-center mt-4 fixed  lg:rounded-tl-lg bg-white z-10  w-[calc(100vw-4rem)] max-sm:w-full max-sm:mt-4 max-sm:rounded-none  md:mt-4 md:rounded-tl-xl  border-l-[1px] border-l-grey-200/80">
+    <nav className=" max-md:hidden  lg:w-[calc(100vw-5rem)]   right-0 lg:h-14 h-10  flex items-center mt-4 fixed  lg:rounded-tl-lg bg-white z-10  w-[calc(100vw-4rem)] max-sm:w-full max-sm:mt-4 max-sm:rounded-none  md:mt-4 md:rounded-tl-xl  border-l-[1px] border-l-grey-200/80">
       <ul className="flex flex-row items-center  justify-center w">
         <li className=" flex justify-center items-center">
           <input
-            className="lg:w-64 w-72 h-7   mx-3 rounded-md  bg-grey-50"
+            className="lg:w-64 w-72 h-9   mx-3 rounded-md  bg-grey-50"
             placeholder="  Busque uma conversa "
             type="search"
           />
         </li>
-        <div className=" flex flex-row items-center max-md:hidden  ">
+        <div className=" flex flex-row items-center  ">
           <li className="ml-2 px-4 h-14 flex items-center  hover-underline-animation">
             <Link
               href={"/dashboard"} className="flex items-center w-full h-full " 
