@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { api } from "../../../api/api";
 import { Toast } from "react-toastify/dist/components";
 import Image from "next/image";
-import { Signup } from "@/utils/types/types";
+import { Signup } from "@/utils/types/@types";
 import { AuthContext } from "@/context/AuthContext";
 import Loading from "@/components/Loading";
 
@@ -29,7 +29,6 @@ const SignUp = () => {
       return true;
     };
     if (!isLoading && status === "success") {
-      context.setAuth(true);
       router.push("/dashboard");
     }
   };

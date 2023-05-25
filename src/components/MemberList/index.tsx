@@ -63,7 +63,7 @@ const MemberCommunity = () => {
           <HoverCard.Trigger asChild >
             <li className="flex  items-center content-center justify-center my-1 w-full h-11">
               <Link
-                href={"/dashboard/communities"}
+                href={`/dashboard/communities/${group.id}`}
                 className="flex w-[98%] flex-row h-11 rounded-md  justify-center items-center hover:bg-grey-300 hover:transition-all duration-300 "
               >
                 <Image

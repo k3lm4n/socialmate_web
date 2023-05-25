@@ -1,10 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import dayjs from "dayjs";
+
+type BubbleChatLeftProps = {
+  content: string;
+  createdAt?: Date;
+  receiverId?: string;
+};
+type Props = { props: BubbleChatLeftProps };
 
 
 
-
-const BubbleChatLeft = () => {
+function BubbleChatLeft(props: Props) {
   return (
     <div className="chat chat-start">
       <div className="chat-image avatar">
@@ -18,11 +25,11 @@ const BubbleChatLeft = () => {
         </div>
       </div>
       <div className="chat-header">
-        Obi-Wan Kenobi
-        <time className="text-xs opacity-50">12:45</time>
+        {props.props.receiverId}
+        <time className="text-xs opacity-50">{dayjs(props.props.createdAt).format("DD/MM HH:mm")}</time>
       </div>
-      <div className="chat-bubble">You were the Chosen One!</div>
-      <div className="chat-footer opacity-50">Delivered</div>
+      <div className="chat-bubble">{props.props.content}</div>
+      <div className="chat-footer opacity-50"></div>
     </div>
   );
 };

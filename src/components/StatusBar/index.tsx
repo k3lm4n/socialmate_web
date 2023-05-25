@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import { MicrophoneIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
+import {AuthContext} from "@/context/AuthContext";
+
 
 const StatusBar = () => {
+  const context = useContext(AuthContext);
+
+
   return (
     <div className="bottom-0 py-2 fixed flex flex-row lg:w-72 w-[calc(100vw-4rem)] h-14 items-center bg-grey-200 z-20">
       <Link href={"/dashboard/feed"} className="flex flex-row ">
@@ -20,7 +25,7 @@ const StatusBar = () => {
         </div>
       </Link>
       <div className="flex flex-col ml-3 w-full">
-        <p className="text-base font-regular">Kelman Santos</p>
+        <p className="text-sm font-regular">{context.user?.name}</p>
         <p className="text-xs font-regular text-grey-700">k3lm4n</p>
       </div>
       <div className="flex flex-row mr-3 items-center">

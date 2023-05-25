@@ -1,28 +1,64 @@
-"use client";
-import React, { PropsWithChildren, useState } from "react";
+// "use client";
+import React, { PropsWithChildren, useEffect, useState } from "react";
+import axiosInstance from "@/api/axiosInstance";
+import { setCookie, parseCookies } from "nookies";
+
+const url = process.env.URL_BASE || "http://localhost:3443/api";
+
+type User = {
+  name: string;
+  email: string;
+  avatar?: string;
+  id: string;
+};
 
 type IContext = {
-  acesstoken: string;
-  setAuth: (value: boolean) => void;
   isAuth: boolean;
+  user: User | undefined;
+  signIn: (data: { email: string; password: string }) => Promise<void>;
 };
-export const AuthContext = React.createContext({} as IContext);
-const AuthProvider = (props: PropsWithChildren) => {
-  const [acesstoken, setAcesstoken] = useState("");
-  const [isAuth, setIsAuth] = useState(false);
 
-  const setAuth = (value: boolean) => {
-    if (value) {
-      setAcesstoken("123");
-      setIsAuth(true);
-    } else {
-      setAcesstoken("");
-      setIsAuth(false);
+export const AuthContext = React.createContext({} as IContext);
+
+const AuthProvider = (props: PropsWithChildren) => {
+  const [user, setUser] = useState<User | undefined>();
+
+  const isAuth = !!user;
+
+  useEffect(() => {
+    const { "socialMate.token": token } = parseCookies();
+    if (token) {
+      axiosInstance
+        .get(url + "/auth/me")
+        .then((response) => {
+          setUser(response.data.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  };
+  }, []);
+
+  async function signIn({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) {
+    const response = await axiosInstance.post(url + "/auth", { email, password });
+
+    setCookie(undefined, "socialMate.token", response.data.accessToken, {
+      maxAge: 60 * 60 * 1, // 1 hour
+    });
+
+    setUser(response.data.userReponse);
+
+    return response.data;
+  }
 
   return (
-    <AuthContext.Provider value={{ acesstoken, setAuth, isAuth }}>
+    <AuthContext.Provider value={{ user, isAuth, signIn }}>
       {props.children}
     </AuthContext.Provider>
   );

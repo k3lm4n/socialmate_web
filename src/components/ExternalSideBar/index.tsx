@@ -14,9 +14,6 @@ import { AuthContext } from "@/context/AuthContext";
 const ExternalSideBar = () => {
   const context = useContext(AuthContext);
 
-  console.log("====================================");
-  console.log(context);
-  console.log("====================================");
   return (
     <div className=" max-sm:backdrop-blur-md  max-sm:bg-black/30 max-sm:w-screen max-sm:h-screen">
       <aside className="h-screen lg:w-20 w-16 fixed left-0 right-0 top-0  mt-6">

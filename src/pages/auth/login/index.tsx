@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,7 +7,7 @@ import { api } from "../../../api/api";
 import { isError, useMutation } from "react-query";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Login } from "@/utils/types/types";
+import { Login } from "@/utils/types/@types";
 import Loading from "@/components/Loading";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -18,12 +18,11 @@ const notify = () =>
   });
 
 const Login = () => {
-  const { mutateAsync, isLoading, isError } = useMutation(
+  const { mutateAsync, isLoading, isError,data } = useMutation(
     ({ email, password }: { email: string; password: string }) =>
-      api.authUser({ email, password }),
+      context.signIn({ email, password }),
     {
       onSuccess: () => {
-        context.setAuth(true);
         notify();
         setTimeout(() => {
           router.push("/dashboard/discovery");
@@ -35,9 +34,6 @@ const Login = () => {
   const router = useRouter();
   const context = useContext(AuthContext);
 
-  console.log("====================================");
-  console.log(context);
-  console.log("====================================");
 
   const { register, handleSubmit } = useForm<Login>({});
 

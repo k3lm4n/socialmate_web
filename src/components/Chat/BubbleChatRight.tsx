@@ -1,7 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import dayjs from "dayjs";
 
-const BubbleChatRight = () => {
+type BubbleChatRightProps = {
+  content: string;
+  createdAt?: Date;
+  senderId: string;
+};
+type Props = { props: BubbleChatRightProps };
+
+function BubbleChatRight(props: Props) {
   return (
     <div className="chat chat-end">
       <div className="chat-image avatar">
@@ -15,13 +23,15 @@ const BubbleChatRight = () => {
         </div>
       </div>
       <div className="chat-header">
-        Anakin
-        <time className="text-xs opacity-50">12:46</time>
+        {props.props.senderId}
+        <time className="text-xs opacity-50">
+          {dayjs(props.props.createdAt).format("DD/MM HH:mm")}
+        </time>
       </div>
-      <div className="chat-bubble">I hate you!</div>
-      <div className="chat-footer opacity-50">Seen at 12:46</div>
+      <div className="chat-bubble">{props.props.content}</div>
+      <div className="chat-footer opacity-50"></div>
     </div>
   );
-};
+}
 
 export default BubbleChatRight;
