@@ -3,7 +3,7 @@ import React, { PropsWithChildren, useEffect, useState } from "react";
 import axiosInstance from "@/api/axiosInstance";
 import { setCookie, parseCookies } from "nookies";
 
-const url = process.env.URL_BASE || "http://localhost:3443/api";
+const url = process.env.URL_BASE || "https//api.oowl.tech/api";
 
 type User = {
   name: string;
