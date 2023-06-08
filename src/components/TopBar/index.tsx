@@ -13,8 +13,8 @@ const TopBar = () => {
             type="search"
           />
         </li>
-        <div className=" flex flex-row items-center  ">
-          <li className="ml-2 px-4 h-14 flex items-center  hover-underline-animation">
+        <div className=" flex flex-row items-center overflow-auto flex-1  ">
+          <li className="ml-2 px-4 h-14 flex items-center  hover-underline-animation ">
             <Link
               href={"/dashboard"} className="flex items-center w-full h-full " 
 

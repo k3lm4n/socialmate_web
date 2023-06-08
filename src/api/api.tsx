@@ -3,7 +3,7 @@
 import axiosInstance from "./axiosInstance";
 import { setCookie } from "nookies";
 
-const url = process.env.URL_BASE || "https://api.oowl.tech/api";
+const url = process.env.URL_BASE || "http://localhost:3443/api";
 
 async function getUsers() {
   const response = await axiosInstance.get(url + "/user");

@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -35,6 +35,11 @@ const nextConfig = {
       {
         source: "/dashboard",
         destination: "/dashboard/discovery",
+        permanent: true,
+      },
+      {
+        source: "/",
+        destination: "/home",
         permanent: true,
       },
     ];

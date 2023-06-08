@@ -1,149 +1,75 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
-export const ActiveList = () => {
+
+ const ActiveList = ()=> {
+  const [open, setOpen] = useState(true)
+
   return (
-    <div className=" absolute right-0 top-[4.7rem]">
-      <div className="w-full max-w-md p-4 bg-white  rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div className="flex items-center justify-between mb-4">
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
-            Online Agora
-          </h5>
-          <Link
-            href="#"
-            className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
-          >
-            Ver Todos
-          </Link>
+    <Transition.Root show={open} as={Fragment}>
+      <Dialog as="div" className="relative z-50" onClose={setOpen}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-in-out duration-500"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in-out duration-500"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+              <Transition.Child
+                as={Fragment}
+                enter="transform transition ease-in-out duration-500 sm:duration-700"
+                enterFrom="translate-x-full"
+                enterTo="translate-x-0"
+                leave="transform transition ease-in-out duration-500 sm:duration-700"
+                leaveFrom="translate-x-0"
+                leaveTo="translate-x-full"
+              >
+                <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-in-out duration-500"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in-out duration-500"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                      <button
+                        type="button"
+                        className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span className="sr-only">Close panel</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      </button>
+                    </div>
+                  </Transition.Child>
+                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+                    <div className="px-4 sm:px-6">
+                      <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
+                        Panel title
+                      </Dialog.Title>
+                    </div>
+                    <div className="relative mt-6 flex-1 px-4 sm:px-6">{/* Your content */}</div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
         </div>
-        <div className="flow-root">
-          <ul
-            role="list"
-            className="divide-y divide-gray-200 dark:divide-gray-700"
-          >
-            <li className="py-3 sm:py-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                    src="https://api.multiavatar.com/neil.svg"
-                    alt="Neil image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                    Neil Sims
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    email@windster.com
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
-                </div>
-              </div>
-            </li>
-            <li className="py-3 sm:py-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                    src="https://api.multiavatar.com/bonnie.svg"
-                    alt="Bonnie image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                    Bonnie Green
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    email@windster.com
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $3467
-                </div>
-              </div>
-            </li>
-            <li className="py-3 sm:py-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                    src="https://api.multiavatar.com/michael.svg"
-                    alt="Michael image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                    Michael Gough
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    email@windster.com
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $67
-                </div>
-              </div>
-            </li>
-            <li className="py-3 sm:py-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                    src="https://api.multiavatar.com/lana.svg"
-                    alt="Lana image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                    Lana Byrd
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    email@windster.com
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $367
-                </div>
-              </div>
-            </li>
-            <li className="pt-3 pb-0 sm:pt-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <Image
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 rounded-full"
-                    src="https://api.multiavatar.com/thomas.svg"
-                    alt="Thomas image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                    Thomes Lean
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    email@windster.com
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $2367
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+      </Dialog>
+    </Transition.Root>
+  )
+}
+
+export default ActiveList

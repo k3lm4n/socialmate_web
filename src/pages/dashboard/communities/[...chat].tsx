@@ -1,4 +1,4 @@
-import { ActiveList } from "@/components/ActiveList";
+import ActiveList  from "@/components/ActiveList";
 import CommunitySpace from "@/components/CommunitySpace";
 import InternalSideBar from "@/components/InternalSideBar";
 import TopBar from "@/components/TopBar";

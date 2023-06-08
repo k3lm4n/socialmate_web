@@ -5,7 +5,7 @@ const { "socialMate.token": token } = parseCookies();
 
 
 const axiosInstance = axios.create({
-    baseURL: process.env.URL_BASE || "http://localhost:3443/axiosInstance",
+    baseURL: process.env.BASE_URL || "http://localhost:3443/axiosInstance",
 
 });
 

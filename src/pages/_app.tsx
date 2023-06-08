@@ -6,6 +6,7 @@ import AuthProvider from "@/context/AuthContext";
 import { ReactElement, ReactNode } from "react";
 import { NextPage } from "next";
 import React from "react";
+import SocketProvider from "@/context/SocketContext";
 
 const client = new QueryClient();
 
@@ -29,7 +30,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="shortcut icon" href="/unionLogo.svg" />
       </Head>
       <QueryClientProvider client={client}>
-        <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+        <AuthProvider>
+          <SocketProvider>
+            {getLayout(<Component {...pageProps} />)}
+          </SocketProvider>
+        </AuthProvider>
       </QueryClientProvider>
     </>
   );

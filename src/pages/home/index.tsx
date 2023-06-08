@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useState, useRef } from "react";
 import Link from "next/link";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 

@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import * as HoverCard from "@radix-ui/react-hover-card";
+import { io } from "socket.io-client";
+
 
 const groups = [
   {
